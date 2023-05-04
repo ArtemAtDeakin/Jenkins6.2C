@@ -17,13 +17,13 @@ pipeline {
                     echo 'Unit and integration tests passed.'
                     emailext body: 'Unit and integration tests passed.',
                              subject: 'Pipeline Stage Success: Unit and Integration Tests',
-                             to: 's222580963@deakin.edu.au'
+                             to: 'tema.potema@gmail.com'
                 }
                 failure {
                     echo 'Unit and integration tests failed.'
                     emailext body: 'Unit and integration tests failed.',
                              subject: 'Pipeline Stage Failure: Unit and Integration Tests',
-                             to: 's222580963@deakin.edu.au'
+                             to: 'tema.potema@gmail.com'
                 }
             }
         }
@@ -43,13 +43,13 @@ pipeline {
                     echo 'Security scan passed.'
                     emailext body: 'Security scan passed.',
                              subject: 'Pipeline Stage Success: Security Scan',
-                             to: 's222580963@deakin.edu.au'
+                             to: 'tema.potema@gmail.com'
                 }
                 failure {
                     echo 'Security scan failed.'
                     emailext body: 'Security scan failed.',
                              subject: 'Pipeline Stage Failure: Security Scan',
-                             to: 's222580963@deakin.edu.au'
+                             to: 'tema.potema@gmail.com'
                 }
             }
         }
@@ -69,13 +69,13 @@ pipeline {
                     echo 'Integration tests on staging passed.'
                     emailext body: 'Integration tests on staging passed.',
                              subject: 'Pipeline Stage Success: Integration Tests on Staging',
-                             to: 's222580963@deakin.edu.au'
+                             to: 'tema.potema@gmail.com'
                 }
                 failure {
                     echo 'Integration tests on staging failed.'
                     emailext body: 'Integration tests on staging failed.',
                              subject: 'Pipeline Stage Failure: Integration Tests on Staging',
-                             to: 's222580963@deakin.edu.au'
+                             to: 'tema.potema@gmail.com'
                 }
             }
         }
