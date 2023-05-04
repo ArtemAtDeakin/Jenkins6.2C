@@ -14,26 +14,29 @@ pipeline {
             }
             post {
                 success {
-                    echo 'Unit and integration tests passed.'
-                    emailext body: 'Unit and integration tests passed.',
-                             subject: 'Pipeline Stage Success: Unit and Integration Tests',
-                             to: 'tema.potema@gmail.com'
-                }
-                failure {
                     script{
-                        try {
+                                                try {
     emailext body: 'Unit and integration tests failed.',
              subject: 'Pipeline Stage Failure: Unit and Integration Tests',
              to: 'tema.potema@gmail.com'
 } catch (Exception e) {
     echo "Error sending email: ${e.getMessage()}"
 }
+                    // echo 'Unit and integration tests passed.'
+                    // emailext body: 'Unit and integration tests passed.',
+                    //          subject: 'Pipeline Stage Success: Unit and Integration Tests',
+                    //          to: 'tema.potema@gmail.com'
+                    }
+                }
+                failure {
+                   
+
 
                     // echo 'Unit and integration tests failed.'
                     // emailext body: 'Unit and integration tests failed.',
                     //          subject: 'Pipeline Stage Failure: Unit and Integration Tests',
                     //          to: 'tema.potema@gmail.com'
-                    }
+                    
                 }
             }
             
