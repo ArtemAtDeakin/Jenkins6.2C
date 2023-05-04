@@ -24,7 +24,7 @@ pipeline {
                         try {
     emailext body: 'Unit and integration tests failed.',
              subject: 'Pipeline Stage Failure: Unit and Integration Tests',
-             to: 'email@gmail.com'
+             to: 'tema.potema@gmail.com'
 } catch (Exception e) {
     echo "Error sending email: ${e.getMessage()}"
 }
