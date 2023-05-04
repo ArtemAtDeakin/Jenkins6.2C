@@ -20,7 +20,8 @@ pipeline {
                              to: 'tema.potema@gmail.com'
                 }
                 failure {
-                    try {
+                    script{
+                        try {
     emailext body: 'Unit and integration tests failed.',
              subject: 'Pipeline Stage Failure: Unit and Integration Tests',
              to: 'email@gmail.com'
@@ -28,10 +29,11 @@ pipeline {
     echo "Error sending email: ${e.getMessage()}"
 }
 
-                    echo 'Unit and integration tests failed.'
-                    emailext body: 'Unit and integration tests failed.',
-                             subject: 'Pipeline Stage Failure: Unit and Integration Tests',
-                             to: 'tema.potema@gmail.com'
+                    // echo 'Unit and integration tests failed.'
+                    // emailext body: 'Unit and integration tests failed.',
+                    //          subject: 'Pipeline Stage Failure: Unit and Integration Tests',
+                    //          to: 'tema.potema@gmail.com'
+                    }
                 }
             }
             
