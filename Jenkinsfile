@@ -64,7 +64,6 @@ pipeline {
             steps {
                 echo 'Performing integration tests in the staging environment to validate the application in a production-like setting using JMeter'
             }
-	}
             post {
                 success {
                     echo 'Integration tests on staging passed.'
@@ -87,3 +86,4 @@ pipeline {
             }
         }
     }
+}
