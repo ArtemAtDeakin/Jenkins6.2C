@@ -1,3 +1,6 @@
+import javax.mail.Session
+import javax.mail.Transport
+
 pipeline {
     agent any
 
@@ -14,25 +17,14 @@ pipeline {
             }
             post {
                 success {
-                    script{
-                                                try {
-    emailext body: 'Unit and integration tests failed.',
-             subject: 'Pipeline Stage Failure: Unit and Integration Tests',
-             to: 'tema.potema@gmail.com'
-} catch (Exception e) {
-    echo "Error sending email: ${e.getMessage()}"
-}
                     echo 'Unit and integration tests passed.'
                     emailext body: 'Unit and integration tests passed.',
                              subject: 'Pipeline Stage Success: Unit and Integration Tests',
                              to: 'tema.potema@gmail.com'
-                    }
+                    
                     
                 }
                 failure {
-                   
-
-
                     echo 'Unit and integration tests failed.'
                     emailext body: 'Unit and integration tests failed.',
                              subject: 'Pipeline Stage Failure: Unit and Integration Tests',
@@ -98,6 +90,23 @@ pipeline {
         stage('Deploy to Production') {
             steps {
                 echo 'Finalizing the process by deploying the application to a production server, like an AWS EC2 instance, making it accessible to users'
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+                try {
+                    echo 'Checking email sending...'
+                    def session = Session.getDefaultInstance(System.getProperties(), null)
+                    def transport = session.getTransport("smtp")
+                    transport.connect()
+                    transport.close()
+                    echo 'Email sending check succeeded.'
+                } catch (Exception e) {
+                    echo "Email sending check failed: ${e.getMessage()}"
+                }
             }
         }
     }
