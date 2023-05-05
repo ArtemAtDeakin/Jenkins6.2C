@@ -14,7 +14,6 @@ pipeline {
             }
             post {
                 success {
-                    steps{
                     script{
                                                 try {
     emailext body: 'Unit and integration tests failed.',
@@ -28,7 +27,7 @@ pipeline {
                     //          subject: 'Pipeline Stage Success: Unit and Integration Tests',
                     //          to: 'tema.potema@gmail.com'
                     }
-                    }
+                    
                 }
                 failure {
                    
