@@ -99,7 +99,13 @@ pipeline {
             script {
                 try {
                     echo 'Checking email sending...'
-                    def session = Session.getDefaultInstance(System.getProperties(), null)
+                    
+                    // Add custom SMTP server properties here
+                    Properties props = new Properties()
+                    props.put("mail.smtp.host", "smtp.gmail.com")
+                    props.put("mail.smtp.port", "465")
+                    
+                    def session = Session.getDefaultInstance(props, null)
                     def transport = session.getTransport("smtp")
                     transport.connect()
                     transport.close()
