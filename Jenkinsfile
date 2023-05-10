@@ -47,17 +47,17 @@ pipeline {
             }
             post {
                 success {
-                    emailext (
                     echo 'Security scan passed.'
+                    emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Success: Security Scan',
                              body: 'Security scan passed.',
                     )
                 }
                 failure {
-                    emailext (
                     echo 'Security scan failed.'
-                             to: 'tema.potema@gmail.com'
+                    emailext (
+                             to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Security Scan',
                              body: 'Security scan failed.',
                     )
@@ -77,17 +77,17 @@ pipeline {
             }
             post {
                 success {
-                    emailext (
                     echo 'Integration tests on staging passed.'
-                             to: 'tema.potema@gmail.com'
+                    emailext (
+                             to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Success: Integration Tests on Staging',
                              body: 'Integration tests on staging passed.',
                     )
                 }
                 failure {
-                    emailext (
                     echo 'Integration tests on staging failed.'
-                             to: 'tema.potema@gmail.com'
+                    emailext (
+                             to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Integration Tests on Staging',
                              body: 'Integration tests on staging failed.',
                     )
