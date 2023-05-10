@@ -1,6 +1,3 @@
-import javax.mail.Session
-import javax.mail.Transport
-
 pipeline {
     agent any
 
@@ -17,18 +14,21 @@ pipeline {
             }
             post {
                 success {
+                    emailtext {
                     echo 'Unit and integration tests passed.'
                     emailext body: 'Unit and integration tests passed.',
                              subject: 'Pipeline Stage Success: Unit and Integration Tests',
                              to: 'tema.potema@gmail.com'
-                    
+                    }                
                     
                 }
                 failure {
+                    emailtext {
                     echo 'Unit and integration tests failed.'
                     emailext body: 'Unit and integration tests failed.',
                              subject: 'Pipeline Stage Failure: Unit and Integration Tests',
                              to: 'tema.potema@gmail.com'
+                    }
                     
                 }
             }
@@ -47,16 +47,20 @@ pipeline {
             }
             post {
                 success {
+                    emailtext {
                     echo 'Security scan passed.'
                     emailext body: 'Security scan passed.',
                              subject: 'Pipeline Stage Success: Security Scan',
                              to: 'tema.potema@gmail.com'
+                    }
                 }
                 failure {
+                    emailtext {
                     echo 'Security scan failed.'
                     emailext body: 'Security scan failed.',
                              subject: 'Pipeline Stage Failure: Security Scan',
                              to: 'tema.potema@gmail.com'
+                    }
                 }
             }
         }
@@ -73,16 +77,20 @@ pipeline {
             }
             post {
                 success {
+                    emailtext {
                     echo 'Integration tests on staging passed.'
                     emailext body: 'Integration tests on staging passed.',
                              subject: 'Pipeline Stage Success: Integration Tests on Staging',
                              to: 'tema.potema@gmail.com'
+                    }
                 }
                 failure {
+                    emailtext {
                     echo 'Integration tests on staging failed.'
                     emailext body: 'Integration tests on staging failed.',
                              subject: 'Pipeline Stage Failure: Integration Tests on Staging',
                              to: 'tema.potema@gmail.com'
+                    }
                 }
             }
         }
