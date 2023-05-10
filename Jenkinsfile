@@ -93,27 +93,4 @@ pipeline {
             }
         }
     }
-
-    post {
-        always {
-            script {
-                try {
-                    echo 'Checking email sending...'
-                    
-                    // Add custom SMTP server properties here
-                    Properties props = new Properties()
-                    props.put("mail.smtp.host", "smtp.gmail.com")
-                    props.put("mail.smtp.port", "465")
-                    
-                    def session = Session.getDefaultInstance(props, null)
-                    def transport = session.getTransport("smtp")
-                    transport.connect()
-                    transport.close()
-                    echo 'Email sending check succeeded.'
-                } catch (Exception e) {
-                    echo "Email sending check failed: ${e.getMessage()}"
-                }
-            }
-        }
-    }
 }
