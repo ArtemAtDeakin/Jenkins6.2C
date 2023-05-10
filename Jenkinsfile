@@ -101,4 +101,11 @@ pipeline {
             }
         }
     }
+    stage('Declarative: Post Actions') {
+            steps {
+                mail to: 'tema.potema@gmail.com',
+                     subject: 'Test Email from Jenkins Pipeline',
+                     body: 'This is a manually triggered test email from the Jenkins Pipeline.'
+            }
+        }
 }
