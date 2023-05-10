@@ -16,7 +16,7 @@ pipeline {
                 success {
                     echo 'Unit and integration tests passed.'
                     emailext (
-                        to: 'tema.potema@gmail.com'
+                        to: 'tema.potema@gmail.com',
                         subject: 'Pipeline Stage Success: Unit and Integration Tests',
                         body: 'Unit and integration tests passed.',
                     )           
