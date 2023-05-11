@@ -24,7 +24,8 @@ pipeline {
                         to: 'tema.potema@gmail.com',
                         subject: 'Pipeline Stage Success: Unit and Integration Tests',
                         body: 'Unit and integration tests passed.',
-                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt'
+                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt',
+    mimeType: 'text/plain'
                     )           
                     
                 }
@@ -39,7 +40,8 @@ pipeline {
                              subject: 'Pipeline Stage Failure: Unit and Integration Tests',
                              body: 'Unit and integration tests failed.',
 
-                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt'
+                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt',
+    mimeType: 'text/plain'
                     )
                     
                 }
@@ -71,7 +73,8 @@ java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.f
                              subject: 'Pipeline Stage Success: Security Scan',
                              body: 'Security scan passed.',
 
-                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt'
+                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt',
+    mimeType: 'text/plain'
                     )
                 }
                 failure {
@@ -86,7 +89,8 @@ java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.f
                              subject: 'Pipeline Stage Failure: Security Scan',
                              body: 'Security scan failed.',
 
-                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt'
+                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt',
+    mimeType: 'text/plain'
                     )
                 }
             }
@@ -115,7 +119,8 @@ java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.f
                              subject: 'Pipeline Stage Success: Integration Tests on Staging',
                              body: 'Integration tests on staging passed.',
 
-                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt'
+                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt',
+    mimeType: 'text/plain'
                     )
                 }
                 failure {
@@ -130,7 +135,8 @@ java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.f
                              subject: 'Pipeline Stage Failure: Integration Tests on Staging',
                              body: 'Integration tests on staging failed.',
 
-                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt'
+                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt',
+    mimeType: 'text/plain'
                     )
                 }
             }
