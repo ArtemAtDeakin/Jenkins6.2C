@@ -24,6 +24,7 @@ pipeline {
                         to: 'tema.potema@gmail.com',
                         subject: 'Pipeline Stage Success: Unit and Integration Tests',
                         body: 'Unit and integration tests passed.',
+                        attachments: '${pwd()}/jenkins-log.txt',
                         attachmentsPattern: '${pwd()}/jenkins-log.txt'
                     )           
                     
@@ -38,7 +39,8 @@ pipeline {
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Unit and Integration Tests',
                              body: 'Unit and integration tests failed.',
-                             attachmentsPattern: '${pwd()}/jenkins-log.txt'
+                             attachments: '${pwd()}/jenkins-log.txt',
+                        attachmentsPattern: '${pwd()}/jenkins-log.txt'
                     )
                     
                 }
@@ -69,7 +71,8 @@ java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.f
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Success: Security Scan',
                              body: 'Security scan passed.',
-                             attachmentsPattern: '${pwd()}/jenkins-log.txt'
+                             attachments: '${pwd()}/jenkins-log.txt',
+                        attachmentsPattern: '${pwd()}/jenkins-log.txt'
                     )
                 }
                 failure {
@@ -83,7 +86,8 @@ java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.f
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Security Scan',
                              body: 'Security scan failed.',
-                             attachmentsPattern: '${pwd()}/jenkins-log.txt'
+                             attachments: '${pwd()}/jenkins-log.txt',
+                        attachmentsPattern: '${pwd()}/jenkins-log.txt'
                     )
                 }
             }
@@ -111,7 +115,8 @@ java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.f
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Success: Integration Tests on Staging',
                              body: 'Integration tests on staging passed.',
-                             attachmentsPattern: '${pwd()}/jenkins-log.txt'
+                             attachments: '${pwd()}/jenkins-log.txt',
+                        attachmentsPattern: '${pwd()}/jenkins-log.txt'
                     )
                 }
                 failure {
@@ -125,7 +130,8 @@ java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.f
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Integration Tests on Staging',
                              body: 'Integration tests on staging failed.',
-                             attachmentsPattern: '${pwd()}/jenkins-log.txt'
+                             attachments: '${pwd()}/jenkins-log.txt',
+                        attachmentsPattern: '${pwd()}/jenkins-log.txt'
                     )
                 }
             }
