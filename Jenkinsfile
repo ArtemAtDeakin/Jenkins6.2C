@@ -17,14 +17,14 @@ pipeline {
                     echo 'Unit and integration tests passed.'
                     script {
 
-                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.zip"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
 
                     }
                     emailext (
                         to: 's222580963@deakin.edu.au',
                         subject: 'Pipeline Stage Success: Unit and Integration Tests',
                         body: 'Unit and integration tests passed.',
-                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt',
+                        attachmentsPattern: '${WORKSPACE}/jenkins-log.zip',
     mimeType: 'text/plain'
                     )           
                     
@@ -34,13 +34,13 @@ pipeline {
                     script {
 
 
-                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.zip"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
                     emailext (
                              to: 's222580963@deakin.edu.au',
                              subject: 'Pipeline Stage Failure: Unit and Integration Tests',
                              body: 'Unit and integration tests failed.',
 
-                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt',
+                        attachmentsPattern: '${WORKSPACE}/jenkins-log.zip',
     mimeType: 'text/plain'
                     )
                     
@@ -66,14 +66,14 @@ pipeline {
                     script {
 
 
-java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.zip"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
                     }
                     emailext (
                              to: 's222580963@deakin.edu.au',
                              subject: 'Pipeline Stage Success: Security Scan',
                              body: 'Security scan passed.',
 
-                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt',
+                        attachmentsPattern: '${WORKSPACE}/jenkins-log.zip',
     mimeType: 'text/plain'
                     )
                 }
@@ -82,14 +82,14 @@ java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.f
                     script {
 
 
-java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.zip"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
                     }
                     emailext (
                              to: 's222580963@deakin.edu.au',
                              subject: 'Pipeline Stage Failure: Security Scan',
                              body: 'Security scan failed.',
 
-                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt',
+                        attachmentsPattern: '${WORKSPACE}/jenkins-log.zip',
     mimeType: 'text/plain'
                     )
                 }
@@ -112,14 +112,14 @@ java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.f
                     script {
 
 
-java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.zip"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
                     }
                     emailext (
                              to: 's222580963@deakin.edu.au',
                              subject: 'Pipeline Stage Success: Integration Tests on Staging',
                              body: 'Integration tests on staging passed.',
 
-                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt',
+                        attachmentsPattern: '${WORKSPACE}/jenkins-log.zip',
     mimeType: 'text/plain'
                     )
                 }
@@ -128,14 +128,14 @@ java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.f
                     script {
 
 
-java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.zip"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
                     }
                     emailext (
                              to: 's222580963@deakin.edu.au',
                              subject: 'Pipeline Stage Failure: Integration Tests on Staging',
                              body: 'Integration tests on staging failed.',
 
-                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt',
+                        attachmentsPattern: '${WORKSPACE}/jenkins-log.zip',
     mimeType: 'text/plain'
                     )
                 }
