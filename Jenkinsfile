@@ -18,7 +18,7 @@ pipeline {
                     script {
                         currentBuild.rawBuild.getLogFile().renameTo(new File("jenkins-log.txt"))
                     }
-                    mail (
+                    emailext (
                         to: 'tema.potema@gmail.com',
                         subject: 'Pipeline Stage Success: Unit and Integration Tests',
                         body: 'Unit and integration tests passed.',
@@ -31,7 +31,7 @@ pipeline {
                     script {
                         currentBuild.rawBuild.getLogFile().renameTo(new File("jenkins-log.txt"))
                     }
-                    mail (
+                    emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Unit and Integration Tests',
                              body: 'Unit and integration tests failed.',
@@ -59,7 +59,7 @@ pipeline {
                     script {
                         currentBuild.rawBuild.getLogFile().renameTo(new File("jenkins-log.txt"))
                     }
-                    mail (
+                    emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Success: Security Scan',
                              body: 'Security scan passed.',
@@ -71,7 +71,7 @@ pipeline {
                     script {
                         currentBuild.rawBuild.getLogFile().renameTo(new File("jenkins-log.txt"))
                     }
-                    mail (
+                    emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Security Scan',
                              body: 'Security scan failed.',
@@ -97,7 +97,7 @@ pipeline {
                     script {
                         currentBuild.rawBuild.getLogFile().renameTo(new File("jenkins-log.txt"))
                     }
-                    mail (
+                    emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Success: Integration Tests on Staging',
                              body: 'Integration tests on staging passed.',
@@ -109,7 +109,7 @@ pipeline {
                     script {
                         currentBuild.rawBuild.getLogFile().renameTo(new File("jenkins-log.txt"))
                     }
-                    mail (
+                    emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Integration Tests on Staging',
                              body: 'Integration tests on staging failed.',
