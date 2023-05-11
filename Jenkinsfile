@@ -21,7 +21,7 @@ pipeline {
 
                     }
                     emailext (
-                        to: 'tema.potema@gmail.com',
+                        to: 's222580963@deakin.edu.au',
                         subject: 'Pipeline Stage Success: Unit and Integration Tests',
                         body: 'Unit and integration tests passed.',
                         attachmentsPattern: '${WORKSPACE}/jenkins-log.txt',
@@ -36,7 +36,7 @@ pipeline {
 
                         java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
                     emailext (
-                             to: 'tema.potema@gmail.com',
+                             to: 's222580963@deakin.edu.au',
                              subject: 'Pipeline Stage Failure: Unit and Integration Tests',
                              body: 'Unit and integration tests failed.',
 
@@ -69,7 +69,7 @@ pipeline {
 java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
                     }
                     emailext (
-                             to: 'tema.potema@gmail.com',
+                             to: 's222580963@deakin.edu.au',
                              subject: 'Pipeline Stage Success: Security Scan',
                              body: 'Security scan passed.',
 
@@ -85,7 +85,7 @@ java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.f
 java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
                     }
                     emailext (
-                             to: 'tema.potema@gmail.com',
+                             to: 's222580963@deakin.edu.au',
                              subject: 'Pipeline Stage Failure: Security Scan',
                              body: 'Security scan failed.',
 
@@ -115,7 +115,7 @@ java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.f
 java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
                     }
                     emailext (
-                             to: 'tema.potema@gmail.com',
+                             to: 's222580963@deakin.edu.au',
                              subject: 'Pipeline Stage Success: Integration Tests on Staging',
                              body: 'Integration tests on staging passed.',
 
@@ -131,7 +131,7 @@ java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.f
 java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
                     }
                     emailext (
-                             to: 'tema.potema@gmail.com',
+                             to: 's222580963@deakin.edu.au',
                              subject: 'Pipeline Stage Failure: Integration Tests on Staging',
                              body: 'Integration tests on staging failed.',
 
