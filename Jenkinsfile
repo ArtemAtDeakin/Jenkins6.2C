@@ -16,7 +16,10 @@ pipeline {
                 success {
                     echo 'Unit and integration tests passed.'
                     script {
-                        currentBuild.rawBuild.getLogFile().copyTo(new File("${pwd()}/jenkins-log.txt"))
+                        import java.nio.file.Files
+                        import java.nio.file.Paths
+
+                        Files.copy(currentBuild.rawBuild.getLogFile().toPath(), Paths.get("${pwd()}/jenkins-log.txt"))
                     }
                     emailext (
                         to: 'tema.potema@gmail.com',
@@ -29,8 +32,10 @@ pipeline {
                 failure {
                     echo 'Unit and integration tests failed.'
                     script {
-                        currentBuild.rawBuild.getLogFile().copyTo(new File("${pwd()}/jenkins-log.txt"))
-                    }
+import java.nio.file.Files
+                        import java.nio.file.Paths
+
+                        Files.copy(currentBuild.rawBuild.getLogFile().toPath(), Paths.get("${pwd()}/jenkins-log.txt"))                    }
                     emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Unit and Integration Tests',
@@ -57,8 +62,10 @@ pipeline {
                 success {
                     echo 'Security scan passed.'
                     script {
-                        currentBuild.rawBuild.getLogFile().copyTo(new File("${pwd()}/jenkins-log.txt"))
-                    }
+import java.nio.file.Files
+                        import java.nio.file.Paths
+
+                        Files.copy(currentBuild.rawBuild.getLogFile().toPath(), Paths.get("${pwd()}/jenkins-log.txt"))                    }
                     emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Success: Security Scan',
@@ -69,8 +76,10 @@ pipeline {
                 failure {
                     echo 'Security scan failed.'
                     script {
-                        currentBuild.rawBuild.getLogFile().copyTo(new File("${pwd()}/jenkins-log.txt"))
-                    }
+import java.nio.file.Files
+                        import java.nio.file.Paths
+
+                        Files.copy(currentBuild.rawBuild.getLogFile().toPath(), Paths.get("${pwd()}/jenkins-log.txt"))                    }
                     emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Security Scan',
@@ -95,8 +104,10 @@ pipeline {
                 success {
                     echo 'Integration tests on staging passed.'
                     script {
-                        currentBuild.rawBuild.getLogFile().copyTo(new File("${pwd()}/jenkins-log.txt"))
-                    }
+import java.nio.file.Files
+                        import java.nio.file.Paths
+
+                        Files.copy(currentBuild.rawBuild.getLogFile().toPath(), Paths.get("${pwd()}/jenkins-log.txt"))                    }
                     emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Success: Integration Tests on Staging',
@@ -107,8 +118,10 @@ pipeline {
                 failure {
                     echo 'Integration tests on staging failed.'
                     script {
-                        currentBuild.rawBuild.getLogFile().copyTo(new File("${pwd()}/jenkins-log.txt"))
-                    }
+import java.nio.file.Files
+                        import java.nio.file.Paths
+
+                        Files.copy(currentBuild.rawBuild.getLogFile().toPath(), Paths.get("${pwd()}/jenkins-log.txt"))                    }
                     emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Integration Tests on Staging',
