@@ -16,7 +16,7 @@ pipeline {
                 success {
                     echo 'Unit and integration tests passed.'
                     script {
-                        currentBuild.rawBuild.getLogFile().renameTo(new File("${pwd()}/jenkins-log.txt"))
+                        currentBuild.rawBuild.getLogFile().copyTo(new File("${pwd()}/jenkins-log.txt"))
                     }
                     emailext (
                         to: 'tema.potema@gmail.com',
@@ -29,7 +29,7 @@ pipeline {
                 failure {
                     echo 'Unit and integration tests failed.'
                     script {
-                        currentBuild.rawBuild.getLogFile().renameTo(new File("${pwd()}/jenkins-log.txt"))
+                        currentBuild.rawBuild.getLogFile().copyTo(new File("${pwd()}/jenkins-log.txt"))
                     }
                     emailext (
                              to: 'tema.potema@gmail.com',
@@ -57,7 +57,7 @@ pipeline {
                 success {
                     echo 'Security scan passed.'
                     script {
-                        currentBuild.rawBuild.getLogFile().renameTo(new File("${pwd()}/jenkins-log.txt"))
+                        currentBuild.rawBuild.getLogFile().copyTo(new File("${pwd()}/jenkins-log.txt"))
                     }
                     emailext (
                              to: 'tema.potema@gmail.com',
@@ -69,7 +69,7 @@ pipeline {
                 failure {
                     echo 'Security scan failed.'
                     script {
-                        currentBuild.rawBuild.getLogFile().renameTo(new File("${pwd()}/jenkins-log.txt"))
+                        currentBuild.rawBuild.getLogFile().copyTo(new File("${pwd()}/jenkins-log.txt"))
                     }
                     emailext (
                              to: 'tema.potema@gmail.com',
@@ -95,7 +95,7 @@ pipeline {
                 success {
                     echo 'Integration tests on staging passed.'
                     script {
-                        currentBuild.rawBuild.getLogFile().renameTo(new File("${pwd()}/jenkins-log.txt"))
+                        currentBuild.rawBuild.getLogFile().copyTo(new File("${pwd()}/jenkins-log.txt"))
                     }
                     emailext (
                              to: 'tema.potema@gmail.com',
@@ -107,7 +107,7 @@ pipeline {
                 failure {
                     echo 'Integration tests on staging failed.'
                     script {
-                        currentBuild.rawBuild.getLogFile().renameTo(new File("${pwd()}/jenkins-log.txt"))
+                        currentBuild.rawBuild.getLogFile().copyTo(new File("${pwd()}/jenkins-log.txt"))
                     }
                     emailext (
                              to: 'tema.potema@gmail.com',
