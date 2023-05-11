@@ -15,19 +15,27 @@ pipeline {
             post {
                 success {
                     echo 'Unit and integration tests passed.'
+                    script {
+                        currentBuild.rawBuild.getLogFile().renameTo(new File("jenkins-log.txt"))
+                    }
                     mail (
                         to: 'tema.potema@gmail.com',
                         subject: 'Pipeline Stage Success: Unit and Integration Tests',
                         body: 'Unit and integration tests passed.',
+                        attachmentsPattern: '**/jenkins-log.txt'
                     )           
                     
                 }
                 failure {
                     echo 'Unit and integration tests failed.'
+                    script {
+                        currentBuild.rawBuild.getLogFile().renameTo(new File("jenkins-log.txt"))
+                    }
                     mail (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Unit and Integration Tests',
                              body: 'Unit and integration tests failed.',
+                             attachmentsPattern: '**/jenkins-log.txt'
                     )
                     
                 }
@@ -48,18 +56,26 @@ pipeline {
             post {
                 success {
                     echo 'Security scan passed.'
+                    script {
+                        currentBuild.rawBuild.getLogFile().renameTo(new File("jenkins-log.txt"))
+                    }
                     mail (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Success: Security Scan',
                              body: 'Security scan passed.',
+                             attachmentsPattern: '**/jenkins-log.txt'
                     )
                 }
                 failure {
                     echo 'Security scan failed.'
+                    script {
+                        currentBuild.rawBuild.getLogFile().renameTo(new File("jenkins-log.txt"))
+                    }
                     mail (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Security Scan',
                              body: 'Security scan failed.',
+                             attachmentsPattern: '**/jenkins-log.txt'
                     )
                 }
             }
@@ -78,18 +94,26 @@ pipeline {
             post {
                 success {
                     echo 'Integration tests on staging passed.'
+                    script {
+                        currentBuild.rawBuild.getLogFile().renameTo(new File("jenkins-log.txt"))
+                    }
                     mail (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Success: Integration Tests on Staging',
                              body: 'Integration tests on staging passed.',
+                             attachmentsPattern: '**/jenkins-log.txt'
                     )
                 }
                 failure {
                     echo 'Integration tests on staging failed.'
+                    script {
+                        currentBuild.rawBuild.getLogFile().renameTo(new File("jenkins-log.txt"))
+                    }
                     mail (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Integration Tests on Staging',
                              body: 'Integration tests on staging failed.',
+                             attachmentsPattern: '**/jenkins-log.txt'
                     )
                 }
             }
@@ -98,14 +122,6 @@ pipeline {
         stage('Deploy to Production') {
             steps {
                 echo 'Finalizing the process by deploying the application to a production server, like an AWS EC2 instance, making it accessible to users'
-            }
-        }
-    
-    stage('Declarative: Post Actions') {
-            steps {
-                mail to: 'tema.potema@gmail.com',
-                     subject: 'Test Email from Jenkins Pipeline',
-                     body: 'This is a manually triggered test email from the Jenkins Pipeline.'
             }
         }
     }
