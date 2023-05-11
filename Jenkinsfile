@@ -17,7 +17,7 @@ pipeline {
                     echo 'Unit and integration tests passed.'
                     script {
 
-                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"))
+                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
 
                     }
                     emailext (
@@ -33,8 +33,7 @@ pipeline {
                     script {
 
 
-                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"))
-                    }
+                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
                     emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Unit and Integration Tests',
@@ -63,7 +62,7 @@ pipeline {
                     script {
 
 
-                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"))
+java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
                     }
                     emailext (
                              to: 'tema.potema@gmail.com',
@@ -77,7 +76,7 @@ pipeline {
                     script {
 
 
-                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"))
+java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
                     }
                     emailext (
                              to: 'tema.potema@gmail.com',
@@ -105,7 +104,7 @@ pipeline {
                     script {
 
 
-                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"))
+java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
                     }
                     emailext (
                              to: 'tema.potema@gmail.com',
@@ -119,7 +118,7 @@ pipeline {
                     script {
 
 
-                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"))
+java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
                     }
                     emailext (
                              to: 'tema.potema@gmail.com',
