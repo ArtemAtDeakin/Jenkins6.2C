@@ -16,10 +16,9 @@ pipeline {
                 success {
                     echo 'Unit and integration tests passed.'
                     script {
-                        import java.nio.file.Files
-                        import java.nio.file.Paths
 
-                        Files.copy(currentBuild.rawBuild.getLogFile().toPath(), Paths.get("${pwd()}/jenkins-log.txt"))
+                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"))
+
                     }
                     emailext (
                         to: 'tema.potema@gmail.com',
@@ -32,10 +31,10 @@ pipeline {
                 failure {
                     echo 'Unit and integration tests failed.'
                     script {
-import java.nio.file.Files
-                        import java.nio.file.Paths
 
-                        Files.copy(currentBuild.rawBuild.getLogFile().toPath(), Paths.get("${pwd()}/jenkins-log.txt"))                    }
+
+                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"))
+                    }
                     emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Unit and Integration Tests',
@@ -62,10 +61,10 @@ import java.nio.file.Files
                 success {
                     echo 'Security scan passed.'
                     script {
-import java.nio.file.Files
-                        import java.nio.file.Paths
 
-                        Files.copy(currentBuild.rawBuild.getLogFile().toPath(), Paths.get("${pwd()}/jenkins-log.txt"))                    }
+
+                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"))
+                    }
                     emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Success: Security Scan',
@@ -76,10 +75,10 @@ import java.nio.file.Files
                 failure {
                     echo 'Security scan failed.'
                     script {
-import java.nio.file.Files
-                        import java.nio.file.Paths
 
-                        Files.copy(currentBuild.rawBuild.getLogFile().toPath(), Paths.get("${pwd()}/jenkins-log.txt"))                    }
+
+                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"))
+                    }
                     emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Security Scan',
@@ -104,10 +103,10 @@ import java.nio.file.Files
                 success {
                     echo 'Integration tests on staging passed.'
                     script {
-import java.nio.file.Files
-                        import java.nio.file.Paths
 
-                        Files.copy(currentBuild.rawBuild.getLogFile().toPath(), Paths.get("${pwd()}/jenkins-log.txt"))                    }
+
+                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"))
+                    }
                     emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Success: Integration Tests on Staging',
@@ -118,10 +117,10 @@ import java.nio.file.Files
                 failure {
                     echo 'Integration tests on staging failed.'
                     script {
-import java.nio.file.Files
-                        import java.nio.file.Paths
 
-                        Files.copy(currentBuild.rawBuild.getLogFile().toPath(), Paths.get("${pwd()}/jenkins-log.txt"))                    }
+
+                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"))
+                    }
                     emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Integration Tests on Staging',
