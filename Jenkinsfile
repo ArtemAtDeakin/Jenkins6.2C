@@ -17,15 +17,14 @@ pipeline {
                     echo 'Unit and integration tests passed.'
                     script {
 
-                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
 
                     }
                     emailext (
                         to: 'tema.potema@gmail.com',
                         subject: 'Pipeline Stage Success: Unit and Integration Tests',
                         body: 'Unit and integration tests passed.',
-                        attachments: '${pwd()}/jenkins-log.txt',
-                        attachmentsPattern: '${pwd()}/jenkins-log.txt'
+                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt'
                     )           
                     
                 }
@@ -34,13 +33,13 @@ pipeline {
                     script {
 
 
-                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+                        java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
                     emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Unit and Integration Tests',
                              body: 'Unit and integration tests failed.',
-                             attachments: '${pwd()}/jenkins-log.txt',
-                        attachmentsPattern: '${pwd()}/jenkins-log.txt'
+
+                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt'
                     )
                     
                 }
@@ -65,14 +64,14 @@ pipeline {
                     script {
 
 
-java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
                     }
                     emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Success: Security Scan',
                              body: 'Security scan passed.',
-                             attachments: '${pwd()}/jenkins-log.txt',
-                        attachmentsPattern: '${pwd()}/jenkins-log.txt'
+
+                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt'
                     )
                 }
                 failure {
@@ -80,14 +79,14 @@ java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.f
                     script {
 
 
-java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
                     }
                     emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Security Scan',
                              body: 'Security scan failed.',
-                             attachments: '${pwd()}/jenkins-log.txt',
-                        attachmentsPattern: '${pwd()}/jenkins-log.txt'
+
+                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt'
                     )
                 }
             }
@@ -109,14 +108,14 @@ java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.f
                     script {
 
 
-java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
                     }
                     emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Success: Integration Tests on Staging',
                              body: 'Integration tests on staging passed.',
-                             attachments: '${pwd()}/jenkins-log.txt',
-                        attachmentsPattern: '${pwd()}/jenkins-log.txt'
+
+                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt'
                     )
                 }
                 failure {
@@ -124,14 +123,14 @@ java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.f
                     script {
 
 
-java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${pwd()}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
+java.nio.file.Files.copy(currentBuild.rawBuild.getLogFile().toPath(), java.nio.file.Paths.get("${WORKSPACE}/jenkins-log.txt"), java.nio.file.StandardCopyOption.REPLACE_EXISTING)
                     }
                     emailext (
                              to: 'tema.potema@gmail.com',
                              subject: 'Pipeline Stage Failure: Integration Tests on Staging',
                              body: 'Integration tests on staging failed.',
-                             attachments: '${pwd()}/jenkins-log.txt',
-                        attachmentsPattern: '${pwd()}/jenkins-log.txt'
+
+                        attachmentsPattern: '${WORKSPACE}/jenkins-log.txt'
                     )
                 }
             }
