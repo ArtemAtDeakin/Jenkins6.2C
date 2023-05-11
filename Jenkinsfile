@@ -100,7 +100,7 @@ pipeline {
                 echo 'Finalizing the process by deploying the application to a production server, like an AWS EC2 instance, making it accessible to users'
             }
         }
-    }
+    
     stage('Declarative: Post Actions') {
             steps {
                 mail to: 'tema.potema@gmail.com',
@@ -108,4 +108,5 @@ pipeline {
                      body: 'This is a manually triggered test email from the Jenkins Pipeline.'
             }
         }
+    }
 }
